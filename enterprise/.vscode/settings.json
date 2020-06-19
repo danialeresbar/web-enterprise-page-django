@@ -1,0 +1,16 @@
+{
+    "python.jediEnabled": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection":
+    "automaticallyOverrodeDefaultValue",
+    "editor.minimap.enabled": true,
+    "editor.largeFileOptimizations": false,
+    "html.format.indentInnerHtml": true,
+    "html.format.indentHandlebars": true,
+    "emmet.includeLanguages": {"django-html": "html"},
+    "[django-html]": {
+    },
+    "files.associations": {
+    "*.html": "html"
+    }
+}
