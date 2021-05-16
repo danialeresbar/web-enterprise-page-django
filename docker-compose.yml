@@ -1,0 +1,28 @@
+version: '3.1'
+
+services:
+  web:
+    build: .
+    image: enterprise:latest
+    container_name: enterprise
+    environment:
+      ENVIRONMENT: development
+    depends_on:
+      - db
+    volumes:
+      - ./enterprise:/home/enterprise
+      - ./frontend:/home/enterprise/templates
+      - ./scripts:/scripts
+
+    # Dev user: admin pass: admin
+    command: ["/scripts/wait-for-it.sh", "db:5432", "--", "/scripts/command-dev.sh"]
+    ports:
+      - "8100:8000"
+
+  db:
+    image: postgres/postgres:12
+    container_name: enterprise-postgres
+    environment: 
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "50001:5432"
