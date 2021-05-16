@@ -1,4 +1,4 @@
-# Last update: Added S3 dependencies
+# Last update: Pillow updated
 
 # AWS Software Development Kit for python
 boto3==1.17.39
@@ -10,7 +10,7 @@ dj-database-url
 django==3.2
 
 # A configurable set of panels that display various debug information about the current request/response
-django-debug-toolbar==3.2
+django-debug-toolbar==3.2.1
 
 # Collection of custom storage backends for Django
 django-storages==1.11.1
@@ -22,7 +22,7 @@ gunicorn==20.0.4
 django-ckeditor==5.9.0
 
 # Python Imaging Library
-Pillow==7.1.2
+Pillow==8.2.0
 
 # PostgreSQL python client
 psycopg2-binary==2.8.5
