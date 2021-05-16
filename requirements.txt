@@ -10,7 +10,7 @@ dj-database-url
 django==3.2
 
 # A configurable set of panels that display various debug information about the current request/response
-django-debug-toolbar==3.2
+django-debug-toolbar==3.2.1
 
 # Collection of custom storage backends for Django
 django-storages==1.11.1
