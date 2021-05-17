@@ -33,7 +33,7 @@ FROM python:3.8-slim-buster
 # Install here only runtime required packages
 RUN apt-get update && apt-get install -y \
     gettext \
-    libproj-dev \
+    libproj-dev
 
 RUN groupadd -g 2000 enterprise && \
     useradd -u 2000 -g enterprise --create-home enterprise
@@ -43,13 +43,12 @@ WORKDIR $USER_HOME
 USER enterprise
 
 # Copy pip install results from builder image
-COPY --from=builder --chown=cmsadm /home/enterprisebuilder/.local $USER_HOME/.local
+COPY --from=builder --chown=enterprise /home/enterprisebuilder/.local $USER_HOME/.local
 
 # Make sure scripts installed by pip in .local are usable:
 ENV PATH=$USER_HOME/.local/bin:$PATH
-RUN mkdir tmp
 
-COPY --chown=cmsadm enterprise/ enterprise/
-COPY --chown=cmsadm frontend/ frontend/
-COPY --chown=cmsadm manage.py manage.py
-COPY --chown=cmsadm scripts/ scripts/
+COPY --chown=enterprise enterprise/ enterprise/
+COPY --chown=enterprise frontend/ frontend/
+COPY --chown=enterprise manage.py manage.py
+COPY --chown=enterprise scripts/ scripts/
