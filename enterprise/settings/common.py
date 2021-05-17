@@ -1,5 +1,8 @@
 import os
 
+ENVIRONMENT = os.environ.get('ENVIRONMENT', 'development')
+IS_PRODUCTION = ENVIRONMENT == "production"
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -7,23 +10,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'm**5g3z@yk66ms2)o7%zrv!kqvl#rxdpv-w2zg5x&b6$j3u_i7'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+DEPENDENCIES_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles'
+]
+
+PROJECT_APPS = [
     'blog',
     'ckeditor',
     'contact',
@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     'services.apps.ServicesConfig',
     'social.apps.SocialConfig',
 ]
+
+INSTALLED_APPS = DEPENDENCIES_APPS + PROJECT_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -68,13 +70,6 @@ WSGI_APPLICATION = 'enterprise.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -99,13 +94,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = 'es'
-
 TIME_ZONE = 'America/Bogota'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
@@ -119,9 +110,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Ckeditor
-CKEDITOR_CONFIGS ={
-    'default':{
-        'toolbar':'Basic',
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Basic',
     }
 }
 
@@ -130,3 +121,6 @@ EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = '34851c611bf69a'
 EMAIL_HOST_PASSWORD = '5201953aacff0d'
 EMAIL_PORT = '2525'
+
+# New Django settings
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
