@@ -21,19 +21,19 @@ from django.urls import path, include
 urlpatterns = [
 
     # Paths de contact
-    path('contact', include('contact.urls')),
+    path('contact', include('enterprise.contact.urls')),
 
     # Paths de core
-    path('', include('core.urls')),
+    path('', include('enterprise.core.urls')),
 
     # Paths de blog
-    path('blog/', include('blog.urls')),
+    path('blog/', include('enterprise.blog.urls')),
 
     # Paths de page
-    path('page/', include('pages.urls')),
+    path('page/', include('enterprise.pages.urls')),
 
     # Paths de services
-    path('services/', include('services.urls')),
+    path('services/', include('enterprise.services.urls')),
 
     # Paths del admin
     path('admin/', admin.site.urls),
