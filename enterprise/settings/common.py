@@ -4,7 +4,8 @@ ENVIRONMENT = os.environ.get('ENVIRONMENT', 'development')
 IS_PRODUCTION = ENVIRONMENT == "production"
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+PROJECT_BASE = f'{BASE_DIR}/enterprise'
 
 # Application definition
 DEPENDENCIES_APPS = [
@@ -17,13 +18,13 @@ DEPENDENCIES_APPS = [
 ]
 
 PROJECT_APPS = [
-    'blog',
+    'enterprise.blog',
     'ckeditor',
-    'contact',
-    'core',
-    'pages.apps.PagesConfig',
-    'services.apps.ServicesConfig',
-    'social.apps.SocialConfig',
+    'enterprise.contact',
+    'enterprise.core',
+    'enterprise.pages.apps.PagesConfig',
+    'enterprise.services.apps.ServicesConfig',
+    'enterprise.social.apps.SocialConfig',
 ]
 
 INSTALLED_APPS = DEPENDENCIES_APPS + PROJECT_APPS
@@ -51,7 +52,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social.processors.ctx_dict',
+                'enterprise.social.processors.ctx_dict',
             ],
         },
     },
