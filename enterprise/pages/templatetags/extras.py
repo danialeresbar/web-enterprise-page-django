@@ -1,5 +1,5 @@
 from django import template
-from pages.models import Page
+from enterprise.pages.models import Page
 
 register = template.Library()
 
