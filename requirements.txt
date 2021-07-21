@@ -1,13 +1,13 @@
-# Last update: Pillow updated
+# Last update: Django version updated
 
 # AWS Software Development Kit for python
-boto3==1.17.39
+boto3==1.17.62
 
 # For autoconfig database using DATABASE_URL env variable
 dj-database-url
 
 # Python WEB framework
-django==3.2
+Django==3.2.4
 
 # A configurable set of panels that display various debug information about the current request/response
 django-debug-toolbar==3.2.1
