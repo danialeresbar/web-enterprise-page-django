@@ -9,10 +9,6 @@ ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update && apt-get install -y \
     gcc \
-    git \
-    libldap2-dev \
-    libsasl2-dev \
-    libssl-dev \
     python3-dev
 
 # Create user for building and installing pip packages inside its home for security purposes
@@ -32,8 +28,7 @@ FROM python:3.8-slim-buster
 
 # Install here only runtime required packages
 RUN apt-get update && apt-get install -y \
-    gettext \
-    libproj-dev
+    curl
 
 RUN groupadd -g 2000 enterprise && \
     useradd -u 2000 -g enterprise --create-home enterprise
