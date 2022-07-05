@@ -7,7 +7,7 @@ boto3==1.17.62
 dj-database-url
 
 # Python WEB framework
-Django==3.2.4
+Django==3.2.14
 
 # A configurable set of panels that display various debug information about the current request/response
 django-debug-toolbar==3.2.1
